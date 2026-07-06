@@ -1,0 +1,125 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+}
+
+.about{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.about-card{
+
+    width:850px;
+    background:#141414;
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:20px;
+
+    padding:60px;
+
+    opacity:0;
+    transform:translateY(40px);
+
+    transition:.8s ease;
+}
+
+.about-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.about-card h4{
+
+    color:#D4AF37;
+
+    letter-spacing:4px;
+
+    margin-bottom:15px;
+
+    font-size:14px;
+}
+
+.about-card h1{
+
+    color:white;
+
+    font-size:42px;
+
+    margin-bottom:30px;
+}
+
+.about-card p{
+
+    color:#cfcfcf;
+
+    line-height:2;
+
+    font-size:17px;
+
+    margin-bottom:20px;
+}
+
+.about-card strong{
+    color:#D4AF37;
+}
+
+blockquote{
+
+    margin-top:35px;
+
+    color:#D4AF37;
+
+    font-size:22px;
+
+    text-align:center;
+
+    font-style:italic;
+}
+
+.about-card:hover{
+
+    border-color:#D4AF37;
+
+    box-shadow:0 0 25px rgba(212,175,55,.18);
+
+    transform:translateY(-5px);
+}
+
+@media(max-width:768px){
+
+.about-card{
+
+padding:35px;
+
+width:100%;
+
+}
+
+.about-card h1{
+
+font-size:32px;
+
+}
+
+.about-card p{
+
+font-size:16px;
+
+}
+
+blockquote{
+
+font-size:18px;
+
+}
+
+}

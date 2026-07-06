@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BANEUIRE | Reserve Table</title>
+
+    <link rel="stylesheet" href="../CSS/reserve.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background Overlay -->
+
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            BANEUIRE
+        </a>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="#">About</a>
+
+            <a href="menu.html">Menu</a>
+
+            <a href="#">Gallery</a>
+
+            <a href="#">Contact</a>
+
+        </nav>
+
+    </header>
+
+    <!-- Reservation Section -->
+
+    <section class="reservation-section">
+
+        <div class="reservation-container">
+
+            <!-- LEFT SIDE -->
+
+            <div class="reservation-form">
+
+                <h1>Reserve Your Table</h1>
+
+                <p>
+                    Reserve your seat and indulge in a memorable dining experience at BANEUIRE.
+                </p>
+
+                <form id="reservationForm">
+
+                    <div class="input-row">
+
+                        <div class="input-group">
+
+                            <label>Full Name</label>
+
+                            <input type="text" id="name" placeholder="Enter your name">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Phone Number</label>
+
+                            <input type="tel" id="phone" placeholder="9876543210">
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-row">
+
+                        <div class="input-group">
+
+                            <label>Email</label>
+
+                            <input type="email" id="email" placeholder="example@email.com">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Date</label>
+
+                            <input type="date" id="date">
+
+                        </div>
+
+                    </div>
+
+                    <!-- Time -->
+
+                    <div class="section-title">
+
+                        Select Time
+
+                    </div>
+
+                    <div class="time-slots">
+
+                        <button type="button" class="time-btn">5:30 PM</button>
+
+                        <button type="button" class="time-btn">6:00 PM</button>
+
+                        <button type="button" class="time-btn">6:30 PM</button>
+
+                        <button type="button" class="time-btn">7:00 PM</button>
+
+                        <button type="button" class="time-btn">7:30 PM</button>
+
+                        <button type="button" class="time-btn">8:00 PM</button>
+
+                    </div>
+
+                    <!-- Guests -->
+
+                    <div class="section-title">
+
+                        Guests
+
+                    </div>
+
+                    <div class="guest-selector">
+
+                        <button type="button" id="minus">
+
+                            -
+
+                        </button>
+
+                        <span id="guestCount">
+
+                            2
+
+                        </span>
+
+                        <button type="button" id="plus">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- Seating -->
+
+                    <div class="section-title">
+
+                        Seating Preference
+
+                    </div>
+
+                    <div class="seat-options">
+
+                        <div class="seat-card">
+
+                            Indoor
+
+                        </div>
+
+                        <div class="seat-card">
+
+                            Window
+
+                        </div>
+
+                        <div class="seat-card">
+
+                            Outdoor
+
+                        </div>
+
+                        <div class="seat-card">
+
+                            Private Booth
+
+                        </div>
+
+                    </div>
+
+                    <!-- Occasion -->
+
+                    <div class="input-group">
+
+                        <label>Occasion</label>
+
+                        <select id="occasion">
+
+                            <option>Casual Dining</option>
+
+                            <option>Birthday</option>
+
+                            <option>Anniversary</option>
+
+                            <option>Business Meeting</option>
+
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Special Request -->
+
+                    <div class="input-group">
+
+                        <label>Special Requests</label>
+
+                  <textarea
+                    id="specialRequest"
+                    rows="5"
+                    placeholder="Let us know if you have any special requests...">
+                </textarea> 
+                
+                    </div>
+
+                    <button type="submit" class="reserve-btn">
+
+                        Reserve Table
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="reservation-summary">
+
+                <h2>
+
+                    Reservation Summary
+
+                </h2>
+
+                <div class="summary-box">
+
+                    <div class="summary-item">
+
+                        <span>Name</span>
+
+                        <strong id="summaryName">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="summary-item">
+
+                        <span>Date</span>
+
+                        <strong id="summaryDate">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+                    <div class="summary-item">
+
+                        <span>Time</span>
+
+                        <strong id="summaryTime">
+
+                            6:00 PM
+
+                        </strong>
+
+                    </div>
+
+                    <div class="summary-item">
+
+                        <span>Guests</span>
+
+                        <strong id="summaryGuests">
+
+                            2
+
+                        </strong>
+
+                    </div>
+
+                    <div class="summary-item">
+
+                        <span>Seating</span>
+
+                        <strong id="summarySeat">
+
+                            Indoor
+
+                        </strong>
+
+                    </div>
+
+                    <div class="summary-item">
+
+                        <span>Occasion</span>
+
+                        <strong id="summaryOccasion">
+
+                            Casual Dining
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="duration">
+
+                    <h3>
+
+                        Estimated Dining Time
+
+                    </h3>
+
+                    <p>
+
+                        Approximately 2 Hours
+
+                    </p>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <h3>
+
+                        Need Assistance?
+
+                    </h3>
+
+                    <p>
+
+                        📞 +91 98765 43210
+
+                    </p>
+
+                    <p>
+
+                        ✉ reservations@baneuire.com
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Success Popup -->
+
+    <div class="popup" id="popup">
+
+        <div class="popup-content">
+
+            <h2>
+
+                Reservation Received
+
+            </h2>
+
+            <p>
+
+                Thank you for choosing BANEUIRE.
+                Our team will contact you shortly to confirm your reservation.
+
+            </p>
+
+            <button id="closePopup">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+   <script src="../JS/reserve.js" defer></script>
+</body>
+
+</html>

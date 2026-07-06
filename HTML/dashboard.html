@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANEUIRE Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>BANEUIRE</h2>
+            <span>ADMIN</span>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Reservations</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-utensils"></i>
+                <span>Menu</span>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </li>
+
+            <li onclick="window.location.href='/HTML/table.html'">
+              <i class="fa-solid fa-chair"></i>
+              <span>Tables</span>
+           </li>
+
+            <li onclick="logout()">
+               <i class="fa-solid fa-right-from-bracket"></i>
+               <span>Logout</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header>
+
+            <div>
+
+                <h1>Dashboard</h1>
+                <p>Welcome to BANEUIRE Admin Panel</p>
+
+            </div>
+
+            <div class="admin-profile">
+
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Administrator</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+
+        <section class="cards">
+
+            <div class="card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3 id="todayReservations">0</h3>
+                <p>Today's Reservations</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-clock"></i>
+                <h3 id="pendingReservations">0</h3>
+                <p>Pending</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3 id="confirmedReservations">0</h3>
+                <p>Confirmed</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-ban"></i>
+                <h3 id="cancelledReservations">0</h3>
+                <p>Cancelled</p>
+            </div>
+
+        </section>
+
+
+
+        <!-- Reservation Table -->
+
+        <section class="table-section">
+
+            <div class="table-header">
+
+                <h2>Reservations</h2>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by Name or Phone">
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Guests</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Table Number</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="reservationTable">
+
+                    <!-- Data will come from MySQL -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+  <!-- View Reservation Modal -->
+
+<div id="viewModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>Reservation Details</h2>
+
+        <div id="reservationDetails"></div>
+
+    </div>
+
+</div>
+    <script src="../JS/dashboard.js"></script>
+
+</body>
+
+</html>
