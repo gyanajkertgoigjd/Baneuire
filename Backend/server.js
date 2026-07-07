@@ -13,14 +13,17 @@ app.use(express.static(path.join(__dirname, "..")));
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "HTML", "index.html"));
 });
-const PORT = 5000;
-
+const PORT = process.env.PORT || 5000;
 // MySQL Connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Gyana@2026#SQL",
-    database: "BANEUIRE"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 // Connect to MySQL
