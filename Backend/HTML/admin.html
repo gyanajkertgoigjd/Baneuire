@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANEUIRE Admin</title>
+
+    <link rel="stylesheet" href="../CSS/admin.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<div class="background-overlay"></div>
+
+<div class="login-container">
+
+    <div class="logo">
+        <h1>BANEUIRE</h1>
+        <p>ADMIN PANEL</p>
+    </div>
+
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Please login to continue</p>
+
+    <form id="adminLoginForm">
+
+        <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+            >
+        </div>
+
+        <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+        </div>
+
+        <button type="submit" class="login-btn">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+<script src="../JS/admin.js"></script>
+
+</body>
+</html>

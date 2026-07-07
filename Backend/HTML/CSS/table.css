@@ -1,0 +1,136 @@
+/* ==========================
+   TABLES PAGE
+========================== */
+
+.tables-section{
+
+    margin-top:40px;
+
+}
+
+.tables-section h2{
+
+    color:#D4AF37;
+    font-family:'Cinzel',serif;
+    font-size:38px;
+    margin-bottom:35px;
+    letter-spacing:1px;
+
+}
+
+/* ==========================
+   TABLE CONTAINER
+========================== */
+
+.tables-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:25px;
+
+}
+
+/* ==========================
+   TABLE CARD
+========================== */
+
+.table-card{
+
+    width:100%;
+    min-height:190px;
+    background:#181818;
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:18px;
+    padding:25px;
+    transition:.35s;
+    cursor:pointer;
+
+}
+
+.table-card:hover{
+
+    transform:translateY(-8px);
+    border-color:#D4AF37;
+    box-shadow:0 0 25px rgba(212,175,55,.30);
+
+}
+
+.table-card h3{
+
+    color:#D4AF37;
+    font-size:28px;
+    margin-bottom:25px;
+    font-family:'Cinzel',serif;
+
+}
+
+.table-card h3 i{
+
+    margin-right:10px;
+
+}
+
+.table-card p{
+
+    color:#ffffff;
+    margin:14px 0;
+    font-size:18px;
+
+}
+
+/* ==========================
+   STATUS BADGES
+========================== */
+
+.available{
+
+    display:inline-block;
+    background:#1DB954;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:600;
+
+}
+
+.reserved{
+
+    display:inline-block;
+    background:#f39c12;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:600;
+
+}
+
+.occupied{
+
+    display:inline-block;
+    background:#e74c3c;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:600;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .tables-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .table-card{
+
+        min-height:auto;
+
+    }
+
+}
