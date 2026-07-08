@@ -2,7 +2,8 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const path = require("path");
-const nodemailer = require("nodemailer");
+const axios = require("axios");
+
 require("dotenv").config();
 
 const app = express();
@@ -40,26 +41,11 @@ db.connect((err) => {
 
 
 // ===========================
-// EMAIL TRANSPORTER
+// BREVO EMAIL API
 // ===========================
 
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.BREVO_USER,
-        pass: process.env.BREVO_PASS
-    }
-});
 
-transporter.verify((error, success) => {
-    if (error) {
-        console.log("SMTP Error:", error);
-    } else {
-        console.log("SMTP Server is ready");
-    }
-});
+
 app.post("/reserve", (req, res) => {
 
     const {
@@ -103,85 +89,74 @@ app.post("/reserve", (req, res) => {
                 });
             }
 
-            const mailOptions = {
+           
 
-    from: '"BANEUIRE" <granjansahoo241@gmail.com>',
-    to: email,
+const emailData = {
+    sender: {
+        name: "BANEUIRE",
+        email: "granjansahoo241@gmail.com" // Must be verified in Brevo
+    },
+
+    to: [
+        {
+            email: email,
+            name: full_name
+        }
+    ],
 
     subject: "Reservation Confirmed | BANEUIRE",
 
-    html: `
-    
-    <div style="
-        font-family:Arial;
-        background:#111;
-        color:white;
-        padding:30px;
-        border-radius:10px;
-    ">
-
-        <h1 style="color:#D4AF37;">
-            BANEUIRE
-        </h1>
+    htmlContent: `
+    <div style="font-family:Arial;background:#111;color:white;padding:30px;border-radius:10px;">
+        <h1 style="color:#D4AF37;">BANEUIRE</h1>
 
         <h2>Reservation Confirmed</h2>
 
         <p>Hello <b>${full_name}</b>,</p>
 
-        <p>
-        Thank you for reserving a table at
-        <b>BANEUIRE</b>.
-        </p>
+        <p>Thank you for reserving a table at <b>BANEUIRE</b>.</p>
 
         <hr>
 
-        <p><b>Date :</b> ${reservation_date}</p>
-
-        <p><b>Time :</b> ${reservation_time}</p>
-
-        <p><b>Guests :</b> ${guests}</p>
-
-        <p><b>Occasion :</b> ${occasion || "Not Specified"}</p>
+        <p><b>Date:</b> ${reservation_date}</p>
+        <p><b>Time:</b> ${reservation_time}</p>
+        <p><b>Guests:</b> ${guests}</p>
+        <p><b>Occasion:</b> ${occasion || "Not Specified"}</p>
 
         <hr>
 
-        <p>
-        We look forward to serving you.
-        </p>
+        <p>We look forward to serving you.</p>
 
-        <h3 style="color:#D4AF37;">
-            Team BANEUIRE
-        </h3>
-
+        <h3 style="color:#D4AF37;">Team BANEUIRE</h3>
     </div>
-
     `
 };
 
-transporter.sendMail(mailOptions, (mailError) => {
-
-    if (mailError) {
-
-        console.log(mailError);
-
-        return res.status(500).json({
-            message: "Reservation saved but email failed."
-        });
-
+axios.post(
+    "https://api.brevo.com/v3/smtp/email",
+    emailData,
+    {
+        headers: {
+            "api-key": process.env.BREVO_API_KEY,
+            "Content-Type": "application/json"
+        }
     }
-
+)
+.then(() => {
     res.json({
         message: "Reservation saved and email sent successfully!"
     });
+})
+.catch((error) => {
+    console.log(error.response?.data || error.message);
 
+    res.status(500).json({
+        message: "Reservation saved but email failed."
+    });
 });
-
         }
     );
-
 });
-
-
 app.get("/reservations", (req, res) => {
 
     const sql = `
