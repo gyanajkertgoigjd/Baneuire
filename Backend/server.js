@@ -105,7 +105,7 @@ app.post("/reserve", (req, res) => {
 
             const mailOptions = {
 
-    from: process.env.BREVO_USER,
+    from: '"BANEUIRE" <granjansahoo241@gmail.com>',
     to: email,
 
     subject: "Reservation Confirmed | BANEUIRE",
