@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "HTML")));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "HTML", "index.html"));
+    res.sendFile(path.join(__dirname,  "HTML", "index.html"));
 });
 const PORT = process.env.PORT || 5000;
 // MySQL Connection

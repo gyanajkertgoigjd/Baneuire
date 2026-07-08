@@ -191,7 +191,7 @@ form.addEventListener("submit", function(e){
     special_request: document.getElementById("specialRequest").value
 };
 
-fetch("http://localhost:5000/reserve", {
+fetch("https://baneuire.onrender.com/reserve", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
