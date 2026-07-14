@@ -291,3 +291,60 @@ body{
     }
 
 }
+@media (max-width:900px){
+
+    .navbar{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        gap:20px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .nav-links{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        width:100%;
+        align-items:center;
+    }
+
+    .nav-links li{
+        list-style:none;
+    }
+
+    .btn1,
+    .reserve-btn{
+        width:200px;
+        text-align:center;
+    }
+
+    .hero{
+        min-height:100vh;
+        height:auto;
+        padding:220px 20px 60px;
+        background-attachment:scroll;
+    }
+
+    .hero-content h1{
+        font-size:48px;
+    }
+
+    .hero-content h3{
+        font-size:18px;
+    }
+
+    .hero-content p{
+        font-size:15px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+}
