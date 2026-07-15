@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     try {
 
-        const response = await fetch("http://localhost:5000/admin-login", {
+        const response = await fetch("/admin-login", {
 
             method: "POST",
 
